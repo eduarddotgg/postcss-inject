@@ -1,0 +1,34 @@
+{
+  "name": "postcss-inject",
+  "version": "1.0.3",
+  "description": "PostCSS Inject - inject css file into each other",
+  "keywords": [
+    "postcss",
+    "css",
+    "postcss-plugin",
+    "inject"
+  ],
+  "author": "Eduárd Pocstár <admdh.com@gmail.com>",
+  "license": "MIT",
+  "repository": "https://github.com/admdh/postcss-inject",
+  "bugs": {
+    "url": "https://github.com/admdh/postcss-inject/issues"
+  },
+  "homepage": "https://github.com/admdh/postcss-inject",
+  "dependencies": {
+    "object-assign": "^4.1.0",
+    "postcss": "^5.0.21"
+  },
+  "devDependencies": {
+    "ava": "^0.15.0",
+    "eslint": "^2.10.0",
+    "eslint-config-postcss": "^2.0.2"
+  },
+  "scripts": {
+    "lint": "eslint index.js",
+    "test": "ava && eslint test/test.js"
+  },
+  "eslintConfig": {
+    "extends": "eslint-config-postcss/es5"
+  }
+}
