@@ -8,7 +8,7 @@ module.exports = postcss.plugin('postcss-inject', function (opts) {
 		cssPlainText: '',
 		cssFilePath: ''
 	}, opts);
-	
+
 	return function(css){
 		if (opts.cssPlainText != '') {
 			var cssContent = postcss.parse(opts.cssPlainText)
@@ -18,15 +18,22 @@ module.exports = postcss.plugin('postcss-inject', function (opts) {
 				css.append(cssContent);
 			}
 		}
-		
+
 		if (opts.cssFilePath != '') {
-			var readCssFile = fs.readFileSync(opts.cssFilePath)
-	   		var cssContent = postcss.parse(readCssFile)
-			if (opts.InjectMode == 'prepend') {
-				css.prepend(cssContent);
-			} else {
-				css.append(cssContent);
-			}
+			return new Promise(function(resolve, reject) {
+				fs.readFile(opts.cssFilePath, function (err, readCssFile) {
+					if ( err ) {
+						return reject(err)
+					}
+					var cssContent = postcss.parse(readCssFile)
+					if (opts.InjectMode == 'prepend') {
+						css.prepend(cssContent);
+					} else {
+						css.append(cssContent);
+					}
+					resolve()
+				})
+			});
 		}
 	}
 });
