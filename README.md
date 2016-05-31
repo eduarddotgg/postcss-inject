@@ -6,7 +6,7 @@
 PostCSS Inject is PostCSS plugin that can inject one css file to another.
 
 ## Why?
-Let's say there are some css variables that are required in few separet css files which don't import each other. To make variables work across all css files you need to:
+Let's say there are some css variables that are required in few separet css files which don't import each other so they can not inherit variables. To make variables work across all css files you need to:
 - import all css files into each other
 - import variables in each css file where variables required
 
