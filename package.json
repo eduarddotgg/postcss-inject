@@ -1,6 +1,6 @@
 {
   "name": "postcss-inject",
-  "version": "1.0.3",
+  "version": "1.0.0",
   "description": "PostCSS Inject - inject css file into each other",
   "keywords": [
     "postcss",
