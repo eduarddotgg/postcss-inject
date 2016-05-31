@@ -57,5 +57,6 @@ a:hover {
 ## Options
 | Name                              | Description    |
 |:----------------------------------|:---------------|
+| `injectTo`                  	 	| Use ```fileStart``` to inject at the begining of file |
 | `cssPlainText`                    | Plain CSS for example ```/* My CSS File */``` |
 | `cssFilePath`                     | Path to css file |

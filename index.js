@@ -1,18 +1,18 @@
 var postcss = require('postcss');
 var assign = require('object-assign');
-var fs = require('fs')
+var fs = require('fs');
 
 module.exports = postcss.plugin('postcss-inject', function (opts) {
 	opts = assign({
-		injectMode: '',
+		injectTo: '',
 		cssPlainText: '',
 		cssFilePath: ''
 	}, opts);
 
 	return function(css){
 		if (opts.cssPlainText != '') {
-			var cssContent = postcss.parse(opts.cssPlainText)
-			if (opts.InjectMode == 'prepend') {
+			var cssContent = postcss.parse(opts.cssPlainText);
+			if (opts.injectTo == 'fileStart') {
 				css.prepend(cssContent);
 			} else {
 				css.append(cssContent);
@@ -25,8 +25,8 @@ module.exports = postcss.plugin('postcss-inject', function (opts) {
 					if ( err ) {
 						return reject(err)
 					}
-					var cssContent = postcss.parse(readCssFile)
-					if (opts.InjectMode == 'prepend') {
+					var cssContent = postcss.parse(readCssFile);
+					if (opts.injectTo == 'fileStart') {
 						css.prepend(cssContent);
 					} else {
 						css.append(cssContent);
