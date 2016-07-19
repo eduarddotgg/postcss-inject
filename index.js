@@ -9,31 +9,31 @@ module.exports = postcss.plugin('postcss-inject', function (opts) {
 		cssFilePath: ''
 	}, opts);
 
-	return function(css){
-		if (opts.cssPlainText != '') {
-			var cssContent = postcss.parse(opts.cssPlainText);
-			if (opts.injectTo == 'fileStart') {
-				css.prepend(cssContent);
+	return function (css) {
+		if (opts.cssPlainText !== '') {
+			var cssPlainText = postcss.parse(opts.cssPlainText);
+			if (opts.injectTo === 'fileStart') {
+				css.prepend(cssPlainText);
 			} else {
-				css.append(cssContent);
+				css.append(cssPlainText);
 			}
 		}
 
-		if (opts.cssFilePath != '') {
-			return new Promise(function(resolve, reject) {
+		if (opts.cssFilePath !== '') {
+			return new Promise(function (resolve, reject) {
 				fs.readFile(opts.cssFilePath, function (err, readCssFile) {
 					if ( err ) {
-						return reject(err)
+						return reject(err);
 					}
-					var cssContent = postcss.parse(readCssFile);
-					if (opts.injectTo == 'fileStart') {
-						css.prepend(cssContent);
+					var cssFilePath = postcss.parse(readCssFile);
+					if (opts.injectTo === 'fileStart') {
+						css.prepend(cssFilePath);
 					} else {
-						css.append(cssContent);
+						css.append(cssFilePath);
 					}
-					resolve()
-				})
+					resolve();
+				});
 			});
 		}
-	}
+	};
 });
