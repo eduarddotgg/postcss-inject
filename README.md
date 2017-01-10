@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/admdh/postcss-inject.svg?branch=master)](https://travis-ci.org/admdh/postcss-inject)
+[![Build Status](https://travis-ci.org/iamfrntdv/postcss-inject.svg?branch=master)](https://travis-ci.org/iamfrntdv/postcss-inject)
 # PostCSS Inject
 <img align="right" width="57" height="108" title="Dev Kit Main Logo" src="http://adm-designhouse.com/dev-kit-logo.png">
 
