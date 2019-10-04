@@ -1,7 +1,5 @@
 [![Build Status](https://travis-ci.org/iamfrntdv/postcss-inject.svg?branch=master)](https://travis-ci.org/iamfrntdv/postcss-inject)
 # PostCSS Inject
-<img align="right" width="57" height="108" title="Dev Kit Main Logo" src="http://adm-designhouse.com/dev-kit-logo.png">
-
 <img align="right" width="108" height="108" title="Philosopher’s stone, logo of PostCSS" src="http://postcss.github.io/postcss/logo.svg" hspace="20">
 PostCSS Inject is PostCSS plugin that can inject one css file to another.
 

@@ -1,34 +1,39 @@
-import postcss from 'postcss';
-import test from 'ava';
+const postcss = require('postcss');
+const test = require('ava');
 
-import plugin from '../';
+const plugin = require('../');
 
 function run(t, input, output) {
 	return postcss([plugin({
 		injectMode: 'prepend',
-		cssPlainText: 'a{color: red;}',
-		cssFilePath: 'test.css'
+		cssPlainText: `
+a {
+	color: red;
+}`,
+		cssFilePath: './test/test.css'
 	})]).process(input)
 		.then(result => {
-			t.same(result.css, output);
-			t.same(result.warnings().length, 0);
+			console.log(result.css);
+			console.log(output);
+			t.is(result.css, output);
+			t.is(result.warnings().length, 0);
 		});
 }
 
-test('Font size or line height doesn\'t match', t => {
+test('CSS doesn\'t match', t => {
 	return run(
 		t,
-`body {
-background: #fff;
+		`body {
+	background: #fff;
 }`,
-`body {
-background: #fff;
+		`body {
+	background: #fff;
 }
 a {
-color: red;
+	color: red;
 }
 .test {
-color: green;
+	color: green;
 }`
 	);
 });
