@@ -17,7 +17,7 @@
   "homepage": "https://github.com/admdh/postcss-inject",
   "dependencies": {
     "object-assign": "^4.1.1",
-    "postcss": "^7.0.18"
+    "postcss": "^8.2.10"
   },
   "devDependencies": {
     "ava": "^2.4.0",
